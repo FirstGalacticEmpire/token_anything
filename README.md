@@ -37,4 +37,3 @@ $ python manage.py createsuperuser
 ```bash
 $ python manage.py startapp NAME_OF_APP
 ```
-**[Postman](https://www.postman.com/downloads/)** application for making requests.
