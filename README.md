@@ -1,5 +1,9 @@
 # Physical nft creator
 TBC DESC OF APP
+## Prerequisites
+* **[Python: 3.8.0](https://www.python.org/downloads/release/python-380/)**
+* **[Postman](https://www.postman.com/downloads/)** application for making requests. (Additional, not required)
+
 ## Installation
 Firstly create your own virtual environment ([venv](https://docs.python.org/3/library/venv.html#module-venv)) in PyCharm or by terminal:
 ```bash
@@ -33,5 +37,4 @@ $ python manage.py createsuperuser
 ```bash
 $ python manage.py startapp NAME_OF_APP
 ```
-## Useful apps:
 **[Postman](https://www.postman.com/downloads/)** application for making requests.
