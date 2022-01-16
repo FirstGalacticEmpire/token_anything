@@ -7,7 +7,7 @@ $ python3 -m venv /path/to/new/virtual/environment
 ```
 The next step is to install the libraries:
 ```bash
-$ pip install -r backend/requirements-dev.txt
+$ pip install -r backend/requirements.txt
 ```
 
 ## Usage
