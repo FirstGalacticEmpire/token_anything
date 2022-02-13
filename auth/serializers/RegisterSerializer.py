@@ -1,7 +1,13 @@
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.utils.encoding import force_bytes, force_str
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
+
+from auth.tokens.AccountActivationToken import account_activation_token
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -35,7 +41,19 @@ class RegisterSerializer(serializers.ModelSerializer):
             last_name=validated_data['last_name']
         )
 
+        user.is_active = False
         user.set_password(validated_data['password'])
+        message = render_to_string('acc_active_email.html', {
+            'user': user,
+            'domain': 'pnft.com',
+            'uid': urlsafe_base64_encode(force_bytes(user.pk)).encode(),
+            'token': account_activation_token.make_token(user),
+        })
+
+        mail_subject = 'Activate your PNFT account.'
+        to_email = user.email
+        email = EmailMessage(mail_subject, message, to=[to_email])
+        email.send()
         user.save()
 
         return user
