@@ -1,7 +1,7 @@
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from auth.serializers.MyTokenObtainPairSerializer import MyTokenObtainPairSerializer
+from authentication.serializers.MyTokenObtainPairSerializer import MyTokenObtainPairSerializer
 
 
 class MyObtainTokenPairView(TokenObtainPairView):

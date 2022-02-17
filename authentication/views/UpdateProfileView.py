@@ -1,8 +1,8 @@
-from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 
-from auth.serializers.UpdateUserSerializer import UpdateUserSerializer
+from authentication.models import User
+from authentication.serializers.UpdateUserSerializer import UpdateUserSerializer
 
 
 class UpdateProfileView(generics.UpdateAPIView):
