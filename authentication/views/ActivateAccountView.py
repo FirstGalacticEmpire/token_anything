@@ -1,4 +1,3 @@
-from django.conf import settings
 from rest_framework import views, status
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
@@ -19,9 +18,10 @@ class ActivateAccountView(views.APIView):
     def get(self, request):
         token = request.GET.get('token')
         try:
-            payload = jwt.decode(token, settings.SECRET_KEY)
-            user = User.objects.get(id=payload['user_id'])
-            if not user.is_verified:
+            payload = jwt.decode(token, options={"verify_signature": False})
+            user: User = User.objects.get(id=payload['user_id'])
+            if not user.is_active:
+                user.is_active = True
                 user.is_verified = True
                 user.save()
             return Response({'email': 'Successfully activated'}, status=status.HTTP_200_OK)

@@ -1,17 +1,14 @@
-from datetime import datetime, timezone
 
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework_simplejwt.views import TokenObtainPairView
-
-
-class TokenSerializer(TokenObtainPairSerializer):
-    @classmethod
-    def get_token(cls, user):
-        user.last_login = datetime.now(tz=timezone.utc)
-        user.save()
-        return RefreshToken.for_user(user)
+from rest_framework import generics, status
+from rest_framework.response import Response
+from authentication.serializers.LoginSerializer import LoginSerializer
 
 
-class LoginView(TokenObtainPairView):
-    serializer_class = TokenSerializer
+class LoginView(generics.GenericAPIView):
+    serializer_class = LoginSerializer
+
+    def post(self, request) -> Response:
+        user = request.data
+        serializer = self.serializer_class(data=user)
+        serializer.is_valid(raise_exception=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

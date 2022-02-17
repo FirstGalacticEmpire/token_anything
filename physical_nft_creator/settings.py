@@ -27,7 +27,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'authentication.User'
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -118,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ]
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=1),
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=1),
 }
 
