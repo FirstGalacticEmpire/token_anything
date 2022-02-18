@@ -10,7 +10,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=255, )  # blank=False, null=False) #TODO zmienic na rewuired itd
     last_name = models.CharField(max_length=255, )  # blank=False, null=False)
     email = models.EmailField(max_length=255, unique=True)
-    username = models.CharField(max_length=255, blank=True, null=True)
+    username = models.CharField(max_length=255,unique=True, blank=True, null=True)
     is_active = models.BooleanField(default=False)
     is_verified = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
@@ -35,10 +35,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         return self.email
-
-    @property
-    def is_admin(self):
-        return self.admin
 
     def tokens(self):
         refresh = RefreshToken.for_user(self)
