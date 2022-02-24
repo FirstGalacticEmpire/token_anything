@@ -37,5 +37,5 @@ urlpatterns = [
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     path('authentication/', include(('authentication.urls', 'authentication'), namespace='User_auth')),
-    path('nft/', include(('nft.urls', 'nft'), namespace='Nft Info')),
+    path('nft/', include(('nft.urls', 'nft'), namespace='Nft_Info')),
 ]

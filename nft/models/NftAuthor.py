@@ -6,15 +6,15 @@ COUNTRIES = {'poland': 'Poland',
              'undetermined': 'Undetermined'}  # etc
 
 
-class Author(models.Model):
+class NftAuthor(models.Model):
     first_name = models.CharField(max_length=255, blank=False, null=False)
     last_name = models.CharField(max_length=255, blank=False, null=False)
     country = models.CharField(max_length=255, blank=False,
                                null=False, default=COUNTRIES.get('undetermined'))
-    ig_url = models.URLField(max_length=200, blank=False, null=False)
-    twitter_url = models.URLField(max_length=200)
-    facebook_url = models.URLField(max_length=200)
-    external_url = models.URLField(max_length=200)
+    ig_url = models.URLField(max_length=200, blank=True, null=False)
+    twitter_url = models.URLField(max_length=200, blank=True)
+    facebook_url = models.URLField(max_length=200, blank=True)
+    external_url = models.URLField(max_length=200, blank=True)
 
     class Meta:
         db_table = 'nft_author'
