@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'drf_yasg',
     'authentication',
+    'nft',
     'rest_framework',
     'django_filters',
 ]

@@ -12,7 +12,7 @@ class Author(models.Model):
     country = models.CharField(max_length=255, blank=False,
                                null=False, default=COUNTRIES.get('undetermined'))
     ig_url = models.URLField(max_length=200, blank=False, null=False)
-    twitter__url = models.URLField(max_length=200)
+    twitter_url = models.URLField(max_length=200)
     facebook_url = models.URLField(max_length=200)
     external_url = models.URLField(max_length=200)
 
@@ -25,5 +25,5 @@ class Author(models.Model):
     def get_urls(self):
         return {'Instagram': self.ig_url,
                 'Facebook': self.facebook_url,
-                'Twitter': self.twitter__url,
+                'Twitter': self.twitter_url,
                 'External link': self.external_url}
