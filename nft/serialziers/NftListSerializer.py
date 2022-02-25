@@ -1,15 +1,13 @@
 from rest_framework import serializers
 
 from nft.models.NftModel import NftModel
+from nft.serialziers.AuthorSerializer import AuthorSerializer
 
 
 class NftListSerializer(serializers.ModelSerializer):
-
-    author_name = serializers.ReadOnlyField(source='author.first_name')
-    author_surname = serializers.ReadOnlyField(source='author.last_name')
+    author = AuthorSerializer(required=True)
 
     class Meta:
         model = NftModel
-        fields = ['name', 'price', 'description', 'image',
-                  'author_name', 'author_surname']
-
+        fields = ['name', 'price', 'image', 'year_of_production',
+                  'author']
