@@ -5,17 +5,23 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from authentication.models.UserManager import UserManager
 
+AUTH_PROVIDERS = {'google': 'google',
+                  'email': 'email'}
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=255, )  # blank=False, null=False) #TODO zmienic na rewuired itd
     last_name = models.CharField(max_length=255, )  # blank=False, null=False)
     email = models.EmailField(max_length=255, unique=True)
-    username = models.CharField(max_length=255,unique=True, blank=True, null=True)
+    username = models.CharField(max_length=255, unique=True, blank=True, null=True)
     is_active = models.BooleanField(default=False)
     is_verified = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
+    auth_provider = models.CharField(
+        max_length=255, blank=False,
+        null=False, default=AUTH_PROVIDERS.get('email'))
 
     # superuser
 
