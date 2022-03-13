@@ -1,5 +1,15 @@
 from django.utils.translation import gettext_lazy as _
 
+
+class JobState:
+    CREATE = "CREATE"
+    SENT = "SENT"
+    HOLD = "HOLD"
+    PROCESS = "PROCESS"
+    FAILED = "FAILED"
+    FINISHED = "FINISHED"
+
+
 HTTP_STATUS_CODES = (
     # Infomational
     (100, _('Continue')),
