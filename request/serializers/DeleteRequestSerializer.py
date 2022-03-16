@@ -12,6 +12,6 @@ class DeleteRequestSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         if instance.status in [JobState.CREATE, JobState.SENT]:
-            instance.status = JobState.HOLD
+            instance.status = JobState.CANCELED
         instance.save()
         return instance

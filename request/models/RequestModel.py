@@ -12,6 +12,7 @@ class RequestModel(models.Model):
     method = models.CharField(default='GET', max_length=7)
     time = models.DateTimeField(default=timezone.now, )
     status = models.CharField(null=False, default=JobState.CREATE, max_length=20)
+    info = models.CharField(max_length=1000, null=False, blank=True)
 
     user = models.ForeignKey(NftAuthor, on_delete=models.CASCADE, null=False, default=None)
 
