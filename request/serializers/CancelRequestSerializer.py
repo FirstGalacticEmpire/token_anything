@@ -5,7 +5,7 @@ from request.models.RequestModel import RequestModel
 from ..utils import JobState
 
 
-class DeleteRequestSerializer(serializers.ModelSerializer):
+class CancelRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = RequestModel
         fields = []
