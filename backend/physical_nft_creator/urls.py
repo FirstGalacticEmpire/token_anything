@@ -37,4 +37,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('authentication/', include(('authentication.urls', 'authentication'), namespace='User_auth')),
     path('nft/', include(('nft.urls', 'nft'), namespace='Nft_Info')),
+    path('request/', include(('request.urls', 'request'), namespace='Request_Info'))
 ]
