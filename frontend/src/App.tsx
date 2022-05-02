@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {Route, Routes, useLocation} from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import PathDoesNotExist from "./components/ErrorPages/PathDoesNotExist";
+import './static/styles.css'
 
 // Ant design:
 import 'antd/dist/antd.css';
