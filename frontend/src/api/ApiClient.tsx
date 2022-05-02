@@ -14,11 +14,19 @@ class APIClient {
             }
         });
         this.nftList = this.nftList.bind(this)
+        this.getNftDetails = this.getNftDetails.bind(this)
     }
 
     // Todo shouldnt be any but type NFT
     async nftList(): Promise<any> {
         return await this.axiosInstance.get(`nft/list`)
+    }
+
+    // Todo params typing is wrong
+    async getNftDetails(params: any): Promise<any> {
+        const nftId = params.queryKey[1]
+        console.log(nftId)
+        return await this.axiosInstance.get(`nft/details/${nftId}`)
     }
 
 }

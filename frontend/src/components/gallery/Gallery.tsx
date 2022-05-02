@@ -1,23 +1,21 @@
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import {useQuery} from "react-query";
 import {toast} from 'react-toastify';
 import apiClient from "../../api/ApiClient";
 import {NFT} from "../interfaces/NFT";
+import GalleryTable from "./GalleryTable";
 
 interface Props {
     message?: string
 }
 
 const Gallery: FC<Props> = ({message}): JSX.Element => {
-
+    const [nftList, setNFTList] = useState<Array<NFT>>([])
     useQuery('nftList',
         () => apiClient.nftList(), {
             onSuccess: (response) => {
-
-                // nftList : Array<NFT> = []
                 const nftList: Array<NFT> = response.data.results
-                console.log(nftList[1].name)
-                // setProblems(response.data)
+                setNFTList(nftList)
             },
             onError: (e: Error) => {
                 toast("Failed loading your annotation jobs: " + e.message)
@@ -28,6 +26,7 @@ const Gallery: FC<Props> = ({message}): JSX.Element => {
 
     return (<>
         This is Gallery!
+        <GalleryTable nftList={nftList}/>
     </>)
 }
 export default Gallery

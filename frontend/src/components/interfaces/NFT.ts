@@ -1,9 +1,7 @@
-interface Author {
-    first_name: string
-    last_name: string
-}
+import {Author} from "./Author";
 
 export interface NFT {
+    id: number
     author: Author
     image: string
     name: string

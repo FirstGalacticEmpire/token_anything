@@ -9,6 +9,7 @@ import PathDoesNotExist from "./components/ErrorPages/PathDoesNotExist";
 import 'antd/dist/antd.css';
 import Navbar from "./components/Navbar";
 import Gallery from "./components/gallery/Gallery";
+import NftDetails from "./components/gallery/NftDetails";
 
 
 function App() {
@@ -22,7 +23,10 @@ function App() {
                     <Route path="/" element={<LandingPage/>}/>
                     <Route path="/landingPage" element={<LandingPage/>}/>
                     <Route path="/gallery" element={<Gallery/>}/>
+                    <Route path="/gallery/id/:nftId"
+                           element={<NftDetails />}/>
                     <Route path="*" element={<PathDoesNotExist/>}/>
+
                 </Routes>
             </main>
             <ToastContainer/>
