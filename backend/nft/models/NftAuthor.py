@@ -11,7 +11,9 @@ class NftAuthor(models.Model):
     last_name = models.CharField(max_length=255, blank=False, null=False)
     country = models.CharField(max_length=255, blank=False,
                                null=False, default=COUNTRIES.get('undetermined'))
-    ig_url = models.URLField(max_length=200, blank=True, null=False)
+    about = models.TextField(blank=True)
+    image = models.ImageField(upload_to='images/', blank=True)
+    ig_url = models.URLField(max_length=200, blank=True)
     twitter_url = models.URLField(max_length=200, blank=True)
     facebook_url = models.URLField(max_length=200, blank=True)
     external_url = models.URLField(max_length=200, blank=True)

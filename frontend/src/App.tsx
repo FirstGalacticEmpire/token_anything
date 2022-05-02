@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {Route, Routes, useLocation} from "react-router-dom";
+import LandingPage from "./components/LandingPage";
+import PathDoesNotExist from "./components/ErrorPages/PathDoesNotExist";
+
+// Ant design:
+import 'antd/dist/antd.css';
+import Navbar from "./components/Navbar";
+import Gallery from "./components/gallery/Gallery";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+    return (
+        <>
+            <Navbar selectedKey={"landingPage"}/>
+            <main>
+                <Routes>
+                    <Route path="/" element={<LandingPage/>}/>
+                    <Route path="/landingPage" element={<LandingPage/>}/>
+                    <Route path="/gallery" element={<Gallery/>}/>
+                    <Route path="*" element={<PathDoesNotExist/>}/>
+                </Routes>
+            </main>
+            <ToastContainer/>
+        </>
+    );
 }
 
 export default App;
