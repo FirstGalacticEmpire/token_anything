@@ -9,5 +9,5 @@ class NftListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = NftModel
-        fields = ['name', 'price', 'image', 'year_of_production',
+        fields = ['id', 'name', 'price', 'image', 'year_of_production',
                   'author']
