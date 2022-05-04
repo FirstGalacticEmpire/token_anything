@@ -27,7 +27,6 @@ share/python-wheels/
 *.egg
 .idea
 MANIFEST
-images
 nft/migrations
 authentication/migrations
 request/migrations
