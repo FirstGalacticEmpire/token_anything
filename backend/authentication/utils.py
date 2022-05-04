@@ -29,7 +29,7 @@ class Util:
     def prepare_message(user: User, request) -> dict:
         token = RefreshToken.for_user(user).access_token
         current_site = get_current_site(request).domain
-        relativeLink = reverse('activate')
+        relativeLink = reverse('authentication:activate')
         absurl = 'http://' + current_site + relativeLink + "?token=" + str(token)
         email_body = 'Hi ' + user.username + \
                      ' Use the link below to verify your email \n' + absurl
