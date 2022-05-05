@@ -28,6 +28,12 @@ const NftDetails: FC<Props> = ({message}): JSX.Element => {
             enabled: !!nftId,
         })
 
-    return (<>Your are reading details of: {nftId} Name: {nft?.name}</>)
+    return (<>
+        <p> Your are reading details of: {nftId} Name: {nft?.name}</p>
+        <p>{"C:/Users/a829748/Studia/physical_nft_creator/backend/" + nft?.image}</p>
+        <img src={"C:/Users/a829748/Studia/physical_nft_creator/backend/" + nft?.image}/>
+
+
+    </>)
 }
 export default NftDetails
