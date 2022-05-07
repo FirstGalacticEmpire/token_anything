@@ -14,6 +14,7 @@ import Gallery from "./components/gallery/Gallery";
 import NftDetails from "./components/gallery/NftDetails";
 import Home from "./components/pages/Home";
 import Header from "./components/menu/header"
+import Register from "./components/pages/register";
 
 
 function App() {
@@ -21,12 +22,13 @@ function App() {
 
     return (
         <>
-            <Navbar selectedKey={"home"}/>
+            <Header className={undefined}/>
             <main>
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/home" element={<Home/>}/>
                     <Route path="/gallery" element={<Gallery/>}/>
+                    <Route path="/register" element={<Register/>}/>
                     <Route path="/gallery/id/:nftId"
                            element={<NftDetails />}/>
                     <Route path="*" element={<PathDoesNotExist/>}/>
