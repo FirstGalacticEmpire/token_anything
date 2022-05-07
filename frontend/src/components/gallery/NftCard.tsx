@@ -30,14 +30,7 @@ const NftCard: FC<Props> = ({nft, onImgLoad, height}): JSX.Element => {
     const navigateTo = (link: string) => {
         navigate(link);
     }
-    // const onImgLoad = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    //     // console.log(height)
-    //     console.log(event.currentTarget.offsetHeight)
-    //     if (height < event.currentTarget.offsetHeight) {
-    //         setHeight(event.currentTarget.offsetHeight);
-    //     }
-    //     // console.log(height)
-    // }
+
 
     return (
         < div className={className}>
@@ -50,7 +43,7 @@ const NftCard: FC<Props> = ({nft, onImgLoad, height}): JSX.Element => {
                     <span>
                     {/*<span onClick={() => navigateTo(nft.author.)}>*/}
                     <img className="lazy"
-                         src={'http://127.0.0.1:8080/author_1.jpg'}
+                         src={'http://localhost:8080\\porto_4.jpg'}
                          alt=""/>
                     <i className="fa fa-check"></i>
                     </span>
