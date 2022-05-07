@@ -4,6 +4,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {QueryClient, QueryClientProvider} from 'react-query'
 import {BrowserRouter} from 'react-router-dom'
+import '../node_modules/font-awesome/css/font-awesome.min.css';
+import '../node_modules/elegant-icons/style.css';
+import '../node_modules/et-line/style.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.js';
 
 const queryClient: QueryClient = new QueryClient()
 
