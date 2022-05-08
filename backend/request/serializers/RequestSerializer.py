@@ -6,4 +6,4 @@ from request.models.RequestModel import RequestModel
 class RequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = RequestModel
-        fields = ['name', 'response', 'method', 'time', 'user', 'status']
+        fields = ['name', 'response', 'method', 'created', 'user', 'status','image']
