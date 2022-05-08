@@ -11,6 +11,8 @@ import 'antd/dist/antd.css';
 import Navbar from "./components/Navbar";
 import Gallery from "./components/gallery/Gallery";
 import NftDetails from "./components/gallery/NftDetails";
+import LoginPage from "./components/LoginPage";
+import RegisterPage from "./components/RegisterPage";
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
                     <Route path="/gallery/id/:nftId"
                            element={<NftDetails />}/>
                     <Route path="*" element={<PathDoesNotExist/>}/>
+                    <Route path="/login" element={<LoginPage />}/>
+                    <Route path="/register" element={<RegisterPage />}/>
 
                 </Routes>
             </main>
