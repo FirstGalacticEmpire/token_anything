@@ -25,7 +25,7 @@ const Gallery: FC<Props> = ({message}): JSX.Element => {
         })
 
     return (<>
-        This is Gallery!
+        {/*This is Gallery!*/}
         <GalleryTable nftList={nftList}/>
     </>)
 }
