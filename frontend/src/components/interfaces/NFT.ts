@@ -7,4 +7,5 @@ export interface NFT {
     name: string
     price: string
     year_of_production: number
+    description?: string
 }

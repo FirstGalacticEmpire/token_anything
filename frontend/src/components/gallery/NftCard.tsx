@@ -3,7 +3,7 @@ import {NFT} from "../interfaces/NFT";
 import {FC} from "react";
 import styled from "styled-components";
 
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 
 const Outer = styled.div`
@@ -41,6 +41,8 @@ const NftCard: FC<Props> = ({nft, onImgLoad, height}): JSX.Element => {
 
                 <div className="author_list_pp">
                     <span>
+                        {/*<Link> To author</Link>*/}
+
                     {/*<span onClick={() => navigateTo(nft.author.)}>*/}
                     <img className="lazy"
                          src={'http://localhost:8080\\porto_4.jpg'}
@@ -60,6 +62,9 @@ const NftCard: FC<Props> = ({nft, onImgLoad, height}): JSX.Element => {
                 </div>
 
                 <div className="nft__item_info">
+                    <Link to={"/gallery/id/" + nft.id}>
+
+
                     {/*<span onClick={() => navigateTo(`${nft.id}`)}>*/}
                     <h4>{nft.name}</h4>
                     <div className="nft__item_price">
@@ -69,6 +74,7 @@ const NftCard: FC<Props> = ({nft, onImgLoad, height}): JSX.Element => {
                         {/*}*/}
                     </div>
                     {/*</span>*/}
+                    </Link>
 
                     <div className="nft__item_action">
                         {/*<span*/}
