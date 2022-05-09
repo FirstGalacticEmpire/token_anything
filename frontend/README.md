@@ -1,3 +1,8 @@
+# How to solve sass:
+- sudo npm install -g sass
+- POTEM DOPIERO ENABLE FILE WATCHER
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

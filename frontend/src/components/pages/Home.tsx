@@ -1,9 +1,9 @@
 import {FC, useState} from "react";
-import SliderMainParticleGrey from "../components/SliderMainParticleGrey";
+import SliderMainParticleGrey from "../landingPage/SliderMainParticleGrey";
 import {createGlobalStyle} from "styled-components";
-import Catgor from "../components/Catgor";
-import Footer from "../components/footer";
-import HotGallery from "../components/HotGallery";
+import Catgor from "../landingPage/Catgor";
+import Footer from "../landingPage/footer";
+import HotGallery from "../landingPage/HotGallery";
 import {NFT} from "../interfaces/NFT";
 import {useQuery} from "react-query";
 import apiClient from "../../api/ApiClient";
@@ -130,7 +130,7 @@ const Home: FC<Props> = ({message}): JSX.Element => {
                     </div>
                 </div>
             </section>
-            <Footer/>
+
 
         </div>
     )

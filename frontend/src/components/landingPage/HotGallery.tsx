@@ -4,7 +4,7 @@ import styled from "styled-components";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // import Clock from "./Clock";
-import {carouselNew5} from './constants';
+import {carouselNew5} from './static/carouselStyling';
 // @ts-ignore
 import Slider from "react-slick";
 import {NFT} from "../interfaces/NFT";
@@ -16,8 +16,6 @@ import {Link} from "react-router-dom";
 interface Props {
     nftList: Array<NFT>
 }
-
-
 
 const Outer = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from '../components/footer';
+import Footer from '../landingPage/footer';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`

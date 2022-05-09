@@ -3,7 +3,7 @@ import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Route, Routes, useLocation} from "react-router-dom";
 import LandingPage from "./components/LandingPage";
-// import home from "./components/pages/home"
+// import home from "./landingPage/pages/home"
 import PathDoesNotExist from "./components/ErrorPages/PathDoesNotExist";
 import './static/styles.css'
 
@@ -15,6 +15,7 @@ import NftDetails from "./components/gallery/NftDetails";
 import Home from "./components/pages/Home";
 import Header from "./components/menu/header"
 import Register from "./components/pages/register";
+import Footer from "./components/landingPage/footer";
 
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
 
     return (
         <>
-            <Header className={undefined}/>
+            <Navbar selectedKey={'gallery'}></Navbar>
+            {/*<Header className={undefined}/>*/}
             <main>
                 <Routes>
                     <Route path="/" element={<Home/>}/>
@@ -30,11 +32,13 @@ function App() {
                     <Route path="/gallery" element={<Gallery/>}/>
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/gallery/id/:nftId"
-                           element={<NftDetails />}/>
+                           element={<NftDetails/>}/>
                     <Route path="*" element={<PathDoesNotExist/>}/>
 
                 </Routes>
             </main>
+
+            <Footer/>
             <ToastContainer/>
         </>
     );

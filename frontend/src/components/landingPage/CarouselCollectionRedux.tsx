@@ -2,7 +2,7 @@ import React, {memo, useEffect} from "react";
 // import {useSelector, useDispatch} from 'react-redux';
 // import 'slick-carousel/slick/slick.css';
 // import 'slick-carousel/slick/slick-theme.css';
-// import {settingsnew} from "./constants";
+// import {settingsnew} from "./static";
 // import CustomSlide from "./CustomSlide";
 // // import * as selectors from '../../store/selectors';
 // import {fetchHotCollections} from "../../store/actions/thunks";

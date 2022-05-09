@@ -1,3 +1,4 @@
+
 export const carouselNew5 = {
     infinite: false,
     speed: 500,

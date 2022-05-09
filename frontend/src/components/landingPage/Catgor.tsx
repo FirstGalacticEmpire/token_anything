@@ -1,8 +1,12 @@
-import React from 'react';
-import {Link} from '@reach/router';
+import React, {FC} from 'react';
+import {Link} from 'react-router-dom'
 
-const catgor = () => (
-    <div className='row'>
+interface Props {
+    message?: string
+}
+
+const catgor: FC<Props> = ({message}): JSX.Element => {
+    return (<div className='row'>
         <div className="col-md-2 col-sm-4 col-6 mb-3">
             <Link className="icon-box style-2 rounded" to="">
                 <i className="fa fa-image"></i>
@@ -39,6 +43,6 @@ const catgor = () => (
                 <span>Collectibles</span>
             </Link>
         </div>
-    </div>
-);
+    </div>)
+};
 export default catgor;
