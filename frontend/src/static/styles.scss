@@ -3513,6 +3513,21 @@ img.img-rounded{
     }
   }
 }
+.login-form {
+  max-width: 500px;
+}
+.login-form-forgot {
+  float: right;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.login-form-button {
+  width: 100%;
+  background-color: #8364E2 !important;
+  border: #8364E2 !important;
+
+}
 
 /*** all icon ***/
 .demo-icon-wrap-s2 {
