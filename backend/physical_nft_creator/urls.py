@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+from django.views.static import serve
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+from django.conf.urls.static import static
+from django.conf.urls import include
+
+from physical_nft_creator import settings
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -37,5 +42,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('authentication/', include(('authentication.urls', 'authentication'), namespace='User_auth')),
     path('nft/', include(('nft.urls', 'nft'), namespace='Nft_Info')),
-    path('request/', include(('request.urls', 'request'), namespace='Request_Info'))
+    path('request/', include(('request.urls', 'request'), namespace='Request_Info')),
 ]
+if settings.DEBUG:
+    urlpatterns += static('/', document_root=settings.BASE_DIR)

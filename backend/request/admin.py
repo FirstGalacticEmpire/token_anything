@@ -5,7 +5,7 @@ from request.models.RequestModel import RequestModel
 
 
 class RequestAdmin(admin.ModelAdmin):
-    list_display = ['name', 'user', 'time', 'status']
+    list_display = ['name', 'user', 'created', 'status','image']
 
 
 admin.site.register(RequestModel, RequestAdmin)
