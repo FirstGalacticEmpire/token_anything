@@ -1,5 +1,6 @@
 import axios, {Axios, AxiosInstance} from 'axios'
 import {User} from "../components/interfaces/User";
+import {Tokens} from "../components/interfaces/Tokens";
 
 class APIClient {
     private axiosInstance: AxiosInstance;
@@ -17,6 +18,14 @@ class APIClient {
         this.nftList = this.nftList.bind(this)
         this.getNftDetails = this.getNftDetails.bind(this)
         this.login = this.login.bind(this)
+    }
+
+    setupLogin(tokens: Tokens) {
+        localStorage.setItem('access_token', tokens.access_token)
+        localStorage.setItem('refresh_token', tokens.refresh_token)
+
+
+
     }
 
     async login(user: User): Promise<any> {

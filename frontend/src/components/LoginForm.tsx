@@ -20,8 +20,7 @@ const LoginForm: FC<Props> = (): JSX.Element => {
 
     const mutation = useMutation(apiClient.login, {
         onSuccess: (response) => {
-            localStorage.setItem('access_token', response.data.access)
-            localStorage.setItem('refresh_token', response.data.refresh)
+            apiClient.setupLogin({access_token: response.data.access, refresh_token: response.data.refresh})
             console.log(response)
         },
         onError: (error) => {
