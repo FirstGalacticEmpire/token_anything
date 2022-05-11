@@ -1,4 +1,5 @@
 import axios, {Axios, AxiosInstance} from 'axios'
+import {User} from "../components/interfaces/User";
 
 class APIClient {
     private axiosInstance: AxiosInstance;
@@ -15,6 +16,11 @@ class APIClient {
         });
         this.nftList = this.nftList.bind(this)
         this.getNftDetails = this.getNftDetails.bind(this)
+        this.login = this.login.bind(this)
+    }
+
+    async login(user: User): Promise<any> {
+        return await this.axiosInstance.post('authentication/login/', JSON.stringify(user))
     }
 
     // Todo shouldnt be any but type NFT

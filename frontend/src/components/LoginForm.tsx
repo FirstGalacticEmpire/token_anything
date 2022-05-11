@@ -2,6 +2,8 @@ import React, {FC} from "react";
 import {Form, Input, Button, Checkbox} from 'antd';
 import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import 'antd/dist/antd.css';
+import {useMutation} from "react-query";
+import apiClient from "../api/ApiClient";
 
 interface Props {
 
@@ -15,7 +17,23 @@ interface Forms {
 
 const LoginForm: FC<Props> = (): JSX.Element => {
 
+
+    const mutation = useMutation(apiClient.login, {
+        onSuccess: (response) => {
+            localStorage.setItem('access_token', response.data.access)
+            localStorage.setItem('refresh_token', response.data.refresh)
+            console.log(response)
+        },
+        onError: (error) => {
+            console.log(error)
+
+        }
+    })
+
+
     const onFinish: FC<Forms> = ({username, password, remember}) => {
+        mutation.mutate({email: "root@root2.com", password: "rootroot"})
+
         console.log('Received values of form: ', username);
 
         return <></>

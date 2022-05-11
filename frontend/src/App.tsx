@@ -13,6 +13,7 @@ import Gallery from "./components/gallery/Gallery";
 import NftDetails from "./components/gallery/NftDetails";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
+import LoginForm from "./components/LoginForm";
 
 
 function App() {
@@ -25,12 +26,14 @@ function App() {
                 <Routes>
                     <Route path="/" element={<LandingPage/>}/>
                     <Route path="/landingPage" element={<LandingPage/>}/>
-                    <Route path="/gallery" element={<Gallery/>}/>
+                    <Route path="/gallery" element={<Gallery/>}>
+                    </Route>
                     <Route path="/gallery/id/:nftId"
-                           element={<NftDetails />}/>
+                           element={<NftDetails/>}/>
+                    <Route path="/login" element={<LoginForm/>}/>
                     <Route path="*" element={<PathDoesNotExist/>}/>
-                    <Route path="/login" element={<LoginPage />}/>
-                    <Route path="/register" element={<RegisterPage />}/>
+                    <Route path="/login" element={<LoginPage/>}/>
+                    <Route path="/register" element={<RegisterPage/>}/>
 
                 </Routes>
             </main>
