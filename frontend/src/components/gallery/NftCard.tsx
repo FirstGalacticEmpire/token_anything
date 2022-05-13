@@ -45,7 +45,7 @@ const NftCard: FC<Props> = ({nft, onImgLoad, height}): JSX.Element => {
 
                     {/*<span onClick={() => navigateTo(nft.author.)}>*/}
                     <img className="lazy"
-                         src={'http://localhost:8080\\porto_4.jpg'}
+                         src={nft.author.image}
                          alt=""/>
                     <i className="fa fa-check"></i>
                     </span>
@@ -54,7 +54,7 @@ const NftCard: FC<Props> = ({nft, onImgLoad, height}): JSX.Element => {
                     <Outer>
                         <span>
                             <img onLoad={onImgLoad}
-                                 src={'http://127.0.0.1:8080/porto_4.jpg'}
+                                 src={nft.image}
                                  className="lazy nft__item_preview"
                                  alt=""/>
                         </span>
