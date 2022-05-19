@@ -9,3 +9,9 @@ class UpdateProfileView(generics.UpdateAPIView):
     queryset = User.objects.all()
     permission_classes = (IsAuthenticated,)
     serializer_class = UpdateUserSerializer
+
+    def get_object(self):
+        queryset = self.filter_queryset(self.get_queryset())
+        user = queryset.get(pk=self.request.user.id)
+        self.check_object_permissions(self.request, user)
+        return user

@@ -120,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ]
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=1),
 }
 
@@ -133,6 +133,16 @@ EMAIL_HOST_PASSWORD = 'zaq1@WSX'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'api_key': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization'
+        }
+    },
+}
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
