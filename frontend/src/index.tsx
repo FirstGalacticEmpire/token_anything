@@ -9,8 +9,11 @@ import '../node_modules/elegant-icons/style.css';
 import '../node_modules/et-line/style.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
+//temp todo
+import {MetaMaskProvider} from "metamask-react";
 
 const queryClient: QueryClient = new QueryClient()
+
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -19,7 +22,9 @@ root.render(
     <React.StrictMode>
         <BrowserRouter>
             <QueryClientProvider client={queryClient}>
-                <App/>
+                <MetaMaskProvider>
+                    <App/>
+                </MetaMaskProvider>
             </QueryClientProvider>
         </BrowserRouter>
     </React.StrictMode>

@@ -13,6 +13,8 @@ import Gallery from "./components/gallery/Gallery";
 import NftDetails from "./components/gallery/NftDetails";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
+import MetaMask from "./components/MetaMask";
+
 
 
 function App() {
@@ -31,7 +33,7 @@ function App() {
                     <Route path="*" element={<PathDoesNotExist/>}/>
                     <Route path="/login" element={<LoginPage />}/>
                     <Route path="/register" element={<RegisterPage />}/>
-
+                    <Route path="/metamask" element={<MetaMask/>}/>
                 </Routes>
             </main>
             <ToastContainer/>
