@@ -18,6 +18,5 @@ class LogoutSerializer(serializers.Serializer):
 
         try:
             RefreshToken(self.token).blacklist()
-
         except TokenError as e:
             self.fail(e)
