@@ -3,7 +3,6 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from authentication.models import User
-from nft.models.NftAuthor import NftAuthor
 from ..utils import HTTP_STATUS_CODES, JobState
 
 

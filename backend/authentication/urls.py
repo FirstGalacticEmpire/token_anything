@@ -8,13 +8,15 @@ from authentication.views.LoginView import LoginView
 from authentication.views.LogoutView import LogoutView
 from authentication.views.RegisterView import RegisterView
 from authentication.views.UpdateProfileView import UpdateProfileView
+from authentication.views.WalletView import WalletView
 
 urlpatterns = [
-    path('login/', LoginView.as_view(), name='User_login',),
+    path('login/', LoginView.as_view(), name='User_login', ),
     path('login/refresh/', TokenRefreshView.as_view(), name='User_token_refresh'),
     path('register/', RegisterView.as_view(), name='User_register'),
-    path('change_password/<int:pk>/', ChangePasswordView.as_view(), name='User_change_password'),
-    path('update_profile/<int:pk>/', UpdateProfileView.as_view(), name='User_update_profile'),
+    path('change_password/', ChangePasswordView.as_view(), name='User_change_password'),
+    path('wallet/', WalletView.as_view(), name='User wallet'),
+    path('update_profile/', UpdateProfileView.as_view(), name='User_update_profile'),
     path('activate/', ActivateAccountView.as_view(), name='activate'),
     path('logout/', LogoutView.as_view(), name='User_logout'),
     path('google/', GoogleAuthView.as_view()),
