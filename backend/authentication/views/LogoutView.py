@@ -7,9 +7,9 @@ from authentication.serializers.LogoutSerializer import LogoutSerializer
 class LogoutView(generics.GenericAPIView):
     serializer_class = LogoutSerializer
     permission_classes = (IsAuthenticated,)
+
     # TODO is valid token perm
     def post(self, request):
-
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
