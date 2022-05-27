@@ -4,7 +4,7 @@ import {createRefreshParamInterface} from "react-auth-kit/dist/types";
 
 
 const refreshApi = createRefresh({
-    interval: 1,   // Refreshs the token in every 10 minutes
+    interval: 1,   // Refreshes the token in every 10 minutes
     refreshApiCallback: (
         {
             authToken,

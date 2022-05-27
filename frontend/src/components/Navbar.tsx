@@ -15,14 +15,27 @@ const Navbar: FC<Props> = ({selectedKey}): JSX.Element => {
     useEffect(() => {
         if (location.pathname.includes("gallery")) {
             setDefaultSelectedKeys(['gallery'])
-        } else if (location.pathname.includes("/")) {
-            // setDefaultSelectedKeys(['landingPage'])
-        } else if (location.pathname.includes("/landingPage")) {
+            return
+        }
+        if (location.pathname.includes("/landingPage")) {
             setDefaultSelectedKeys(['landingPage'])
-        } else if (location.pathname.includes("/login")) {
+            return
+        }
+        if (location.pathname.includes("/login")) {
             setDefaultSelectedKeys(['login'])
-        } else if (location.pathname.includes("/protected")) {
+            return
+        }
+        if (location.pathname.includes("/logout")) {
+            setDefaultSelectedKeys(['logout'])
+            return
+        }
+        if (location.pathname.includes("/protected")) {
             setDefaultSelectedKeys(['protected'])
+            return;
+        }
+        if (location.pathname.includes("/")) {
+            setDefaultSelectedKeys(['landingPage'])
+            return
         }
     }, [location.pathname])
 
@@ -37,6 +50,9 @@ const Navbar: FC<Props> = ({selectedKey}): JSX.Element => {
             </Menu.Item>
             <Menu.Item key="login" icon={<AppstoreOutlined/>}>
                 <Link onClick={() => setDefaultSelectedKeys(["login"])} to="/login">Login</Link>
+            </Menu.Item>
+            <Menu.Item key="logout" icon={<AppstoreOutlined/>}>
+                <Link onClick={() => setDefaultSelectedKeys(["logout"])} to="/logout">Logout</Link>
             </Menu.Item>
             <Menu.Item key="protected" icon={<AppstoreOutlined/>}>
                 <Link onClick={() => setDefaultSelectedKeys(["protected"])} to="/protected">Protected</Link>

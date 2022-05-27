@@ -52,7 +52,6 @@ class APIClient {
     // Todo params typing is wrong
     async getNftDetails(params: any): Promise<any> {
         const nftId = params.queryKey[1]
-        // console.log(nftId)
         return await this.axiosInstance.get(`nft/details/${nftId}`)
     }
 

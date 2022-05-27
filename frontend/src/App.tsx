@@ -16,6 +16,10 @@ import RegisterPage from "./components/RegisterPage";
 import LoginForm from "./components/LoginForm";
 import { RequireAuth } from 'react-auth-kit'
 import Protected from "./components/Protected";
+import LogoutForm from "./components/LogoutForm";
+import AuthenticatedRoute from "./api/AuthenticatedRoute";
+
+
 
 function App() {
 
@@ -31,14 +35,14 @@ function App() {
                         </Route>
                         <Route path="/gallery/id/:nftId"
                                element={<NftDetails/>}/>
-                        <Route path="/login" element={<LoginForm/>}/>
                         <Route path="*" element={<PathDoesNotExist/>}/>
-                        <Route path="/login" element={<LoginPage/>}/>
+                        <Route path="/login" element={<LoginForm/>}/>
+                        <Route path="/logout" element={<LogoutForm/>}/>
                         <Route path="/register" element={<RegisterPage/>}/>
                         <Route path="/protected" element={
-                            <RequireAuth loginPath={'/login'}>
+                            <AuthenticatedRoute>
                                 <Protected/>
-                            </RequireAuth>
+                            </AuthenticatedRoute>
                         }/>
                     </Routes>
 
