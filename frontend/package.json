@@ -19,6 +19,7 @@
     "et-line": "^1.0.1",
     "font-awesome": "^4.7.0",
     "react": "^18.1.0",
+    "react-auth-kit": "^2.1.0",
     "react-bootstrap": "^2.3.1",
     "react-dom": "^18.1.0",
     "react-dropzone": "^14.2.1",

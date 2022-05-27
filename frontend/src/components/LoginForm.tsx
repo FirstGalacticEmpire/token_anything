@@ -1,7 +1,14 @@
-import React, {FC} from "react";
-import {Form, Input, Button} from 'antd';
+
+import React, {FC, useEffect} from "react";
+import {Form, Input, Button, Checkbox} from 'antd';
+
 import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import 'antd/dist/antd.css';
+import {useMutation} from "react-query";
+import {useAuthUser, useIsAuthenticated, useSignIn} from 'react-auth-kit'
+import {useAPIClient} from "../api/ApiProvider";
+import APIClient from "../api/ApiClient";
+import {useNavigate} from "react-router-dom";
 
 interface Props {
 
@@ -14,12 +21,55 @@ interface Forms {
 }
 
 const LoginForm: FC<Props> = (): JSX.Element => {
+    const signIn = useSignIn()
+    const apiClient = useAPIClient() as APIClient
+    const isAuthenticated = useIsAuthenticated()
+
+    const navigate = useNavigate()
+    // useEffect(() => {
+    //     if (isAuthenticated()) {
+    //         navigate("/")
+    //     }
+    // }, [isAuthenticated, navigate])
+
+    const mutation = useMutation(apiClient.login, {
+        onSuccess: (response) => {
+            apiClient.setupLogin({
+                access_token: response.data.tokens.access,
+                refresh_token: response.data.tokens.refresh
+            })
+            console.log(response)
+            if (signIn({
+                token: response.data.tokens.access,
+                expiresIn: 1000,
+                tokenType: "Bearer",
+                authState: {name: 'React User', uid: 123456}
+                // authState: res.data.authUserState,
+                // refreshToken: response.data.tokens.refresh,                    // Only if you are using refreshToken feature
+                // refreshTokenExpireIn: 20
+            })) {
+                // console.log("signed in")
+                // @ts-ignore
+
+            } else {
+                console.log("Failed to sign in")
+            }
+        },
+        onError: (error) => {
+            console.log(error)
+        }
+    })
 
     const onFinish: FC<Forms> = ({username, password, remember}) => {
-        console.log('Received values of form: ', username);
-
+        mutation.mutate({email: "root@root2.com", password: "rootroot"})
+        // mutation.mutate({email: username, password: password})
+        // console.log('Received values of form: ', username);
         return <></>
     };
+
+    if (isAuthenticated()){
+        return (<>You are already logged-in</>)
+    }
 
     return (
         <Form
@@ -34,7 +84,7 @@ const LoginForm: FC<Props> = (): JSX.Element => {
                 name="username"
                 rules={[
                     {
-                        required: true,
+                        // required: true,
                         message: 'Please input your Username!',
                     },
                 ]}
@@ -45,7 +95,7 @@ const LoginForm: FC<Props> = (): JSX.Element => {
                 name="password"
                 rules={[
                     {
-                        required: true,
+                        // required: true,
                         message: 'Please input your Password!',
                     },
                 ]}

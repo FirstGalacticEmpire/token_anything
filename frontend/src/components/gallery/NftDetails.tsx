@@ -1,9 +1,10 @@
 import {FC, useState} from "react";
 import {useParams} from "react-router-dom";
 import {useQuery} from "react-query";
-import apiClient from "../../api/ApiClient";
 import {NFT} from "../interfaces/NFT";
 import {toast} from "react-toastify";
+import {ApiContextType, useAPIClient} from "../../api/ApiProvider";
+
 
 interface Props {
     message?: string
@@ -12,6 +13,7 @@ interface Props {
 const NftDetails: FC<Props> = ({message}): JSX.Element => {
     const {nftId} = useParams();
     const [nft, setNft] = useState<NFT | null>(null)
+    const apiClient = useAPIClient() as ApiContextType
 
     useQuery(['nftDetails', nftId],
         apiClient.getNftDetails, {
