@@ -31,7 +31,6 @@ const NftDetails: FC<Props> = ({message}): JSX.Element => {
 
     return (
         <div>
-            {/*<GlobalStyles/>*/}
 
             <section className='container'>
                 <div className='row mt-md-5 pt-md-4'>
