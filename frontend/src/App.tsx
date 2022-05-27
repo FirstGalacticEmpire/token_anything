@@ -14,7 +14,8 @@ import NftDetails from "./components/gallery/NftDetails";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import LoginForm from "./components/LoginForm";
-
+import { RequireAuth } from 'react-auth-kit'
+import Protected from "./components/Protected";
 
 function App() {
 
@@ -23,19 +24,24 @@ function App() {
         <>
             <Navbar selectedKey={"landingPage"}/>
             <main>
-                <Routes>
-                    <Route path="/" element={<LandingPage/>}/>
-                    <Route path="/landingPage" element={<LandingPage/>}/>
-                    <Route path="/gallery" element={<Gallery/>}>
-                    </Route>
-                    <Route path="/gallery/id/:nftId"
-                           element={<NftDetails/>}/>
-                    <Route path="/login" element={<LoginForm/>}/>
-                    <Route path="*" element={<PathDoesNotExist/>}/>
-                    <Route path="/login" element={<LoginPage/>}/>
-                    <Route path="/register" element={<RegisterPage/>}/>
+                    <Routes>
+                        <Route path="/" element={<LandingPage/>}/>
+                        <Route path="/landingPage" element={<LandingPage/>}/>
+                        <Route path="/gallery" element={<Gallery/>}>
+                        </Route>
+                        <Route path="/gallery/id/:nftId"
+                               element={<NftDetails/>}/>
+                        <Route path="/login" element={<LoginForm/>}/>
+                        <Route path="*" element={<PathDoesNotExist/>}/>
+                        <Route path="/login" element={<LoginPage/>}/>
+                        <Route path="/register" element={<RegisterPage/>}/>
+                        <Route path="/protected" element={
+                            <RequireAuth loginPath={'/login'}>
+                                <Protected/>
+                            </RequireAuth>
+                        }/>
+                    </Routes>
 
-                </Routes>
             </main>
             <ToastContainer/>
         </>

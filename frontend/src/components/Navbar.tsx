@@ -16,9 +16,13 @@ const Navbar: FC<Props> = ({selectedKey}): JSX.Element => {
         if (location.pathname.includes("gallery")) {
             setDefaultSelectedKeys(['gallery'])
         } else if (location.pathname.includes("/")) {
-            setDefaultSelectedKeys(['landingPage'])
+            // setDefaultSelectedKeys(['landingPage'])
         } else if (location.pathname.includes("/landingPage")) {
             setDefaultSelectedKeys(['landingPage'])
+        } else if (location.pathname.includes("/login")) {
+            setDefaultSelectedKeys(['login'])
+        } else if (location.pathname.includes("/protected")) {
+            setDefaultSelectedKeys(['protected'])
         }
     }, [location.pathname])
 
@@ -30,6 +34,12 @@ const Navbar: FC<Props> = ({selectedKey}): JSX.Element => {
             </Menu.Item>
             <Menu.Item key="gallery" icon={<AppstoreOutlined/>}>
                 <Link onClick={() => setDefaultSelectedKeys(["gallery"])} to="/gallery">Gallery</Link>
+            </Menu.Item>
+            <Menu.Item key="login" icon={<AppstoreOutlined/>}>
+                <Link onClick={() => setDefaultSelectedKeys(["login"])} to="/login">Login</Link>
+            </Menu.Item>
+            <Menu.Item key="protected" icon={<AppstoreOutlined/>}>
+                <Link onClick={() => setDefaultSelectedKeys(["protected"])} to="/protected">Protected</Link>
             </Menu.Item>
             {/*<Menu.SubMenu key="SubMenu" title="Navigation Two - Submenu" icon={<SettingOutlined/>}>*/}
             {/*    <Menu.Item key="two" icon={<AppstoreOutlined/>}>*/}
