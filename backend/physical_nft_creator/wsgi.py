@@ -22,8 +22,8 @@ application = get_wsgi_application()
 User = get_user_model()
 if not User.objects.filter(username="root").exists():
     User.objects.create_superuser(username="root",
-                                  password="root",
-                                  email="root@root.com",
+                                  password="rootroot",
+                                  email="root2@root.com",
                                   first_name="rooot",
                                   last_name="roooot")
 
