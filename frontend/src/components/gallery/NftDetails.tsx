@@ -33,13 +33,12 @@ const NftDetails: FC<Props> = ({message}): JSX.Element => {
 
     return (
         <div>
-            {/*<GlobalStyles/>*/}
 
             <section className='container'>
                 <div className='row mt-md-5 pt-md-4'>
 
                     <div className="col-md-6 text-center">
-                        <img src='http://localhost:8080\\porto_4.jpg' className="img-fluid img-rounded mb-sm-30" alt=""/>
+                        <img src={nft?.image} className="img-fluid img-rounded mb-sm-30" alt=""/>
                     </div>
                     <div className="col-md-6">
                         <div className="item_info">
@@ -56,7 +55,7 @@ const NftDetails: FC<Props> = ({message}): JSX.Element => {
                             <div className="item_author">
                                 <div className="author_list_pp">
                                         <span>
-                                            <img className="lazy" src='http://localhost:8080\\porto_4.jpg' alt=""/>
+                                            <img className="lazy" src={nft?.author.image} alt=""/>
                                             <i className="fa fa-check"></i>
                                         </span>
                                 </div>

@@ -4,6 +4,7 @@ from django.db import models
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from authentication.models.UserManager import UserManager
+from authentication.models.UserWallet import UserWallet
 
 AUTH_PROVIDERS = {'google': 'google',
                   'email': 'email'}
@@ -23,8 +24,12 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=255, blank=False,
         null=False, default=AUTH_PROVIDERS.get('email'))
 
-    # superuser
-
+    wallet = models.OneToOneField(
+        UserWallet,
+        on_delete=models.CASCADE,
+        default=None,
+        null=True
+    )
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'username']  # USERNAME_FIELD and password are required by default
 

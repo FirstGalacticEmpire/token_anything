@@ -14,8 +14,13 @@ const LoginPage: FC<Props> = (): JSX.Element => {
 
     return (<>
         <div>
+
             <section className='jumbotron breadcumb no-bg'
                      style={{backgroundImage: `url(${'./img/subheader-dark.jpg'})`}}>
+
+
+            <section className='jumbotron breadcumb no-bg' style={{backgroundImage: `url(${'./img/subheader-dark.jpg'})`}}>
+
                 <div className='mainbreadcumb'>
                     <div className='container'>
                         <div className='row'>
@@ -30,10 +35,19 @@ const LoginPage: FC<Props> = (): JSX.Element => {
             <section className='container'>
                 <div className="row">
                     <div className="col-md-6 offset-md-3">
+
                         {/*<LoginForm/>*/}
                     </div>
                 </div>
             </section>
+
+                        <LoginForm/>
+
+                    </div>
+                </div>
+            </section>
+
+
         </div>
     </>)
 }

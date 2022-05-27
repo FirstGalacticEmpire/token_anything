@@ -1,5 +1,7 @@
+
 import React, {FC, useEffect} from "react";
 import {Form, Input, Button, Checkbox} from 'antd';
+
 import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import {useMutation} from "react-query";
@@ -105,16 +107,6 @@ const LoginForm: FC<Props> = (): JSX.Element => {
                     // onChange={handleNameChange}
                 />
             </Form.Item>
-
-            {/*<Form.Item>*/}
-            {/*    <Form.Item name="remember" valuePropName="checked" noStyle>*/}
-            {/*        <Checkbox>Remember me</Checkbox>*/}
-            {/*    </Form.Item>*/}
-
-            {/*    <a className="login-form-forgot" href="">*/}
-            {/*        Forgot password*/}
-            {/*    </a>*/}
-            {/*</Form.Item>*/}
 
             <Form.Item>
                 <Button type="primary" htmlType="submit" className="login-form-button">
