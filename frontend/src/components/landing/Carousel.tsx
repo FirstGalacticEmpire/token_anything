@@ -70,9 +70,7 @@ const Carousel: FC<Props> = ({nftList}): JSX.Element => {
             setHeight(event.currentTarget.offsetHeight);
         }
     }
-    // console.log(nftList)
     return (
-        // {console.log(nft)}
         <div className='nft'>
             <Slider {...carouselNew}>
                 {nftList && nftList.map((nft, index) => (
@@ -80,48 +78,42 @@ const Carousel: FC<Props> = ({nftList}): JSX.Element => {
                     <div className='itm' key={index}>
 
                         <div className="d-item">
-                            <div>
-                                {/*{console.log(nft)}*/}
-                            </div>
 
                             <div className="nft__item">
                                 <div className="author_list_pp">
-                        <span onClick={() => window.open("/home1", "_self")}>
-                            <img className="lazy" src={nft.author.image} alt=""/>
-                            <i className="fa fa-check"> </i>
+                                    <Link to={"/author/id/" + nft.author.id}>
+                                        <img className="lazy" src={nft.author.image} alt=""/>
+                                        <i className="fa fa-check"> </i>
+                                    </Link>
 
-                        </span>
                                 </div>
 
                                 <div className="nft__item_wrap" style={{height: `${height}px`}}>
-                                    {/*<Outer>*/}
+
                                     <span>
-                            <img src={nft.image} className="lazy nft__item_preview" onLoad={onImgLoad} alt=""/>
-                        </span>
-                                    {/*</Outer>*/}
+                                        <img src={nft.image} className="lazy nft__item_preview" onLoad={onImgLoad} alt=""/>
+                                    </span>
+
                                 </div>
                                 <div className="nft__item_info">
-                                    {/*<span onClick={()=> window.open("/#", "_self")}>*/}
                                     <Link to={"/gallery/id/" + nft.id}>
                                         <h4>{nft.name}</h4>
                                     </Link>
 
-
-                                {/*</span>*/}
-                                <div className="nft__item_price">
-                                    {nft.price} ETH
-                                </div>
-                                <div className="nft__item_action">
-                                    <span>Place a bid</span>
-                                </div>
-                                <div className="nft__item_like">
-                                    <i className="fa fa-heart"></i><span>10</span>
+                                    <div className="nft__item_price">
+                                        {nft.price} ETH
+                                    </div>
+                                    <div className="nft__item_action">
+                                        <span>Place a bid</span>
+                                    </div>
+                                    <div className="nft__item_like">
+                                        <i className="fa fa-heart"></i><span>10</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </div>
-                    ))}
+                ))}
             </Slider>
         </div>
     )

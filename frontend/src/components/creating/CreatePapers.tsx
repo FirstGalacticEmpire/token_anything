@@ -1,10 +1,7 @@
 import React, {FC} from 'react';
 import {useLocation} from "react-router-dom";
 
-interface locationData {
-    name: string
-    description: string
-}
+
 
 const CreatePapers: FC = () => {
     const location = useLocation();

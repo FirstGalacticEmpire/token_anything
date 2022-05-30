@@ -1,11 +1,10 @@
-
-import React, {FC, useEffect} from "react";
-import {Form, Input, Button, Checkbox} from 'antd';
-
-import {UserOutlined, LockOutlined} from '@ant-design/icons';
+import React, {FC} from "react";
+import {Button, Form, Input} from 'antd';
+import {toast} from "react-toastify";
+import {LockOutlined, UserOutlined} from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import {useMutation} from "react-query";
-import {useAuthUser, useIsAuthenticated, useSignIn} from 'react-auth-kit'
+import {useIsAuthenticated, useSignIn} from 'react-auth-kit'
 import {useAPIClient} from "../api/ApiProvider";
 import APIClient from "../api/ApiClient";
 import {useNavigate} from "react-router-dom";
@@ -15,7 +14,7 @@ interface Props {
 }
 
 interface Forms {
-    username: string
+    email: string
     password: string
     remember: boolean
 }
@@ -26,11 +25,7 @@ const LoginForm: FC<Props> = (): JSX.Element => {
     const isAuthenticated = useIsAuthenticated()
 
     const navigate = useNavigate()
-    // useEffect(() => {
-    //     if (isAuthenticated()) {
-    //         navigate("/")
-    //     }
-    // }, [isAuthenticated, navigate])
+
 
     const mutation = useMutation(apiClient.login, {
         onSuccess: (response) => {
@@ -47,11 +42,14 @@ const LoginForm: FC<Props> = (): JSX.Element => {
                 // authState: res.data.authUserState,
                 // refreshToken: response.data.tokens.refresh,                    // Only if you are using refreshToken feature
                 // refreshTokenExpireIn: 20
+
             })) {
-                // console.log("signed in")
-                // @ts-ignore
+                toast("Successful sign in")
+                navigate("/");
+
 
             } else {
+                toast("Failed to sign in")
                 console.log("Failed to sign in")
             }
         },
@@ -60,14 +58,13 @@ const LoginForm: FC<Props> = (): JSX.Element => {
         }
     })
 
-    const onFinish: FC<Forms> = ({username, password, remember}) => {
-        mutation.mutate({email: "root2@root.com", password: "rootroot"})
+    const onFinish: FC<Forms> = ({email, password, remember}) => {
+        mutation.mutate({email: email, password: password})
         // mutation.mutate({email: username, password: password})
-        // console.log('Received values of form: ', username);
         return <></>
     };
 
-    if (isAuthenticated()){
+    if (isAuthenticated()) {
         return (<>You are already logged-in</>)
     }
 
@@ -81,15 +78,15 @@ const LoginForm: FC<Props> = (): JSX.Element => {
             onFinish={onFinish}
         >
             <Form.Item
-                name="username"
+                name="email"
                 rules={[
                     {
                         // required: true,
-                        message: 'Please input your Username!',
+                        message: 'Please input your E-mail!',
                     },
                 ]}
             >
-                <Input prefix={<UserOutlined className="site-form-item-icon"/>} placeholder="Username"/>
+                <Input prefix={<UserOutlined className="site-form-item-icon"/>} placeholder="E-mail"/>
             </Form.Item>
             <Form.Item
                 name="password"
@@ -112,7 +109,9 @@ const LoginForm: FC<Props> = (): JSX.Element => {
                 <Button type="primary" htmlType="submit" className="login-form-button">
                     Log in
                 </Button>
-                {/*Or <a href="">register now!</a>*/}
+                <br/>
+
+                Or <span>register now!</span>
             </Form.Item>
         </Form>
 

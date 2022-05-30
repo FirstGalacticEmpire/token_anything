@@ -16,7 +16,7 @@ const LogoutForm: FC<Props> = (): JSX.Element => {
     }
 
     return (<>
-        <Button onClick={() => {
+        <Button id="btn_copy" onClick={() => {
             signOut()
         }}>Logout</Button>
     </>)

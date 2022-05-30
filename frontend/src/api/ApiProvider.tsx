@@ -12,6 +12,8 @@ export type ApiContextType = {
     login: (user: User) => Promise<any>
     nftList: (params: any) => Promise<any>
     getNftDetails: (params: any) => Promise<any>
+    getAuthorDetails: (params: any) => Promise<any>
+    getWalletDetails: (params: any) => Promise<any>
 };
 
 const ApiClientProvider: React.FC<Props> = ({ children }) => {

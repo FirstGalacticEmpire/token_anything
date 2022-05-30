@@ -12,7 +12,9 @@ class NftModel(models.Model):
     name = models.CharField(max_length=255, null=False, blank=False)
     author = models.ForeignKey(NftAuthor, on_delete=models.CASCADE, blank=True, default=None)
     year_of_production = models.IntegerField(choices=YEAR_CHOICES, default=None)
+    standard = models.CharField(max_length=255, null=True, blank=False)
     price = models.DecimalField(max_digits=6, decimal_places=2, default=200)
+    last_seen_price = models.DecimalField(max_digits=6, decimal_places=2, default=200)
     description = models.TextField(blank=True)
     image = models.ImageField(_("Image"), upload_to='nft_images/', blank=True, default="nft_images/porto_4.jpg")
 

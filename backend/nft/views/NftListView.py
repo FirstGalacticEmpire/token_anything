@@ -6,7 +6,7 @@ from nft.serialziers.NftListSerializer import NftListSerializer
 
 class NftListView(generics.ListAPIView):
     serializer_class = NftListSerializer
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     model = serializer_class.Meta.model
     paginate_by = 100
 

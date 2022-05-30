@@ -33,6 +33,8 @@ class APIClient {
 
         this.nftList = this.nftList.bind(this)
         this.getNftDetails = this.getNftDetails.bind(this)
+        this.getAuthorDetails = this.getAuthorDetails.bind(this)
+        this.getWalletDetails = this.getWalletDetails.bind(this)
         this.login = this.login.bind(this)
     }
 
@@ -42,6 +44,7 @@ class APIClient {
 
     async login(user: User): Promise<any> {
         return await this.axiosInstance.post('authentication/login/', JSON.stringify(user))
+
     }
 
     // Todo shouldnt be any but type NFT
@@ -53,6 +56,16 @@ class APIClient {
     async getNftDetails(params: any): Promise<any> {
         const nftId = params.queryKey[1]
         return await this.axiosInstance.get(`nft/details/${nftId}`)
+    }
+
+    async getAuthorDetails(params: any): Promise<any> {
+        const authorId = params.queryKey[1]
+        console.log(authorId)
+        return await this.axiosInstance.get(`nft/author/${authorId}`)
+    }
+
+    async getWalletDetails(params: any): Promise<any>{
+        return await this.axiosInstance.get('authentication/wallet/')
     }
 
 }

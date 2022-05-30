@@ -10,7 +10,7 @@ class NftSerializer(serializers.ModelSerializer):
     class Meta:
         model = NftModel
         fields = ['name', 'price', 'description', 'image', 'year_of_production',
-                  'author']
+                  'author', 'standard', 'last_seen_price']
 
         def get_img_url(self, obj):
             return self.context['request'].build_absolute_uri(obj.image.url)
