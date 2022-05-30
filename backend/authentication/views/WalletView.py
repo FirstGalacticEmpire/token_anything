@@ -1,6 +1,5 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-
 from authentication.models import User
 from authentication.models.UserWallet import UserWallet
 from authentication.serializers.UserWalletSerializer import UserWalletSerializer

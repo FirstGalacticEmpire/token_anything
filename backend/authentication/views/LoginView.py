@@ -1,3 +1,4 @@
+
 from rest_framework import generics, status
 from rest_framework.response import Response
 from authentication.serializers.LoginSerializer import LoginSerializer
@@ -5,6 +6,7 @@ from authentication.serializers.LoginSerializer import LoginSerializer
 
 class LoginView(generics.GenericAPIView):
     serializer_class = LoginSerializer
+    permission_classes = [permissions.AllowAny]
 
     def post(self, request) -> Response:
         user = request.data
