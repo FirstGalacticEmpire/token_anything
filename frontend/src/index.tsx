@@ -10,6 +10,13 @@ import '../node_modules/et-line/style.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
 
+import {AuthProvider} from 'react-auth-kit'
+import ApiClientProvider from "./api/ApiProvider";
+import refreshApi from "./refreshApi";
+
+import '../src/assets/style.css'; ///eee co
+
+
 const queryClient: QueryClient = new QueryClient()
 
 const root = ReactDOM.createRoot(
@@ -17,11 +24,18 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <QueryClientProvider client={queryClient}>
-                <App/>
-            </QueryClientProvider>
-        </BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+            <AuthProvider authType={'localstorage'}
+                          authName={'_auth'}
+                          // refresh={refreshApi} todo add refresh
+            >
+                <ApiClientProvider>
+                    <BrowserRouter>
+                        <App/>
+                    </BrowserRouter>
+                </ApiClientProvider>
+            </AuthProvider>
+        </QueryClientProvider>
     </React.StrictMode>
 );
 
