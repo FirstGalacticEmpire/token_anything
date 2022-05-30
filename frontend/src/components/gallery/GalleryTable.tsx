@@ -5,11 +5,11 @@ import NftCard from "./NftCard"
 interface Props {
     nftList: Array<NFT>
     byName: string
-    byAuthor: string
+    byAuthor: string | undefined
+    byStandard: string
 }
 
-const GalleryTable: FC<Props> = ({nftList, byName, byAuthor}): JSX.Element => {
-
+const GalleryTable: FC<Props> = ({nftList, byName, byAuthor, byStandard}): JSX.Element => {
     const [height, setHeight] = useState(0);
 
     const onImgLoad = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -21,13 +21,13 @@ const GalleryTable: FC<Props> = ({nftList, byName, byAuthor}): JSX.Element => {
 
     return (
         <div className='row'>
-            {nftList.filter(nft => nft.name.includes(byName)).map((nft, index) => (
+            {nftList.filter(nft => nft.name.includes(byName)).filter(nft => nft.standard.includes(byStandard)).map((nft, index) => (
 
                 <NftCard nft={nft} key={index} onImgLoad={onImgLoad} height={height}/>
             ))
             }
 
-            {nftList.filter(nft => nft.author.first_name.includes(byAuthor)).map((nft, index) => (
+            {nftList.filter(nft => nft.author.first_name.includes(byAuthor !== undefined ? byAuthor: 'sadasd')).map((nft, index) => (
 
                 <NftCard nft={nft} key={index} onImgLoad={onImgLoad} height={height}/>
             ))

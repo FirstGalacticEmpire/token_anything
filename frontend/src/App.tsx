@@ -13,7 +13,7 @@ import Gallery from "./components/gallery/Gallery";
 import NftDetails from "./components/gallery/NftDetails";
 import RegisterPage from "./components/RegisterPage";
 
-import LoginForm from "./components/LoginForm";
+import LoginPage from "./components/LoginPage";
 import Protected from "./components/Protected";
 import LogoutForm from "./components/LogoutForm";
 import AuthenticatedRoute from "./api/AuthenticatedRoute";
@@ -42,7 +42,8 @@ function App() {
                     <Route path="/gallery/id/:nftId"
                            element={<NftDetails/>}/>
                     <Route path="*" element={<PathDoesNotExist/>}/>
-                    <Route path="/login" element={<LoginForm/>}/>
+
+                    <Route path="/login" element={<LoginPage />}/>
                     <Route path="/logout" element={<LogoutForm/>}/>
                     <Route path="/register" element={<RegisterPage/>}/>
                     <Route path="/author/id/:authorID" element={<AuthorDetails/>}/>

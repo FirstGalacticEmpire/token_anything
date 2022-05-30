@@ -23,9 +23,9 @@ const PreviewItem: FC<Props> = (props) =>{
                           <span>
                               <h4>{props.title.length > 0 ? props.title : 'Random name'}</h4>
                           </span>
-                <div className="nft__item_price">
-                    0.00 ETH
-                </div>
+                {/*<div className="nft__item_price">*/}
+                {/*    0.00 ETH*/}
+                {/*</div>*/}
 
                 <div className="nft__item_like">
                     <i className="fa fa-heart"></i><span>50</span>
