@@ -21,6 +21,7 @@ const GalleryTable: FC<Props> = ({nftList, byName, byAuthor, byStandard}): JSX.E
 
     return (
         <div className='row'>
+            {/*//todo handling where nft.standard is null, happens when backend fails*/}
             {nftList.filter(nft => nft.name.includes(byName)).filter(nft => nft.standard.includes(byStandard)).map((nft, index) => (
 
                 <NftCard nft={nft} key={index} onImgLoad={onImgLoad} height={height}/>
