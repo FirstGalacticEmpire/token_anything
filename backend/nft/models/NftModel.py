@@ -14,7 +14,6 @@ class NftModel(models.Model):
     author = models.ForeignKey(NftAuthor, on_delete=models.CASCADE, null=True, default=None)
     year_of_production = models.IntegerField(choices=YEAR_CHOICES, default=None)
     standard = models.CharField(max_length=255, null=True, blank=False)
-    price = models.DecimalField(max_digits=6, decimal_places=2, default=200)
     last_seen_price = models.DecimalField(max_digits=6, decimal_places=2, default=200)
     price = models.DecimalField(max_digits=25, decimal_places=15, default=200)
     description = models.TextField(blank=True)

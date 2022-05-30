@@ -54,6 +54,8 @@ def _convert_dto_to_nft(web_token: WebToken, request: RequestModel) -> NftModel:
         wallet_address=web_token.wallet_address,
         contract_address=web_token.contract_address,
         user=request.user,
+        standard=request.request_type,
+        last_seen_price=request.price
     )
 
 

@@ -6,9 +6,7 @@ from authentication.models import User
 from ..utils import JobState
 
 
-class RequestType(models.IntegerChoices):
-    FOR_SALE = 1
-    PAWN = 2
+
 
 
 charfield_errors = {
