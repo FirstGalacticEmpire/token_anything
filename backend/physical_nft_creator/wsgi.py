@@ -11,7 +11,7 @@ import os
 
 from django.contrib.auth import get_user_model
 from django.core.wsgi import get_wsgi_application
-
+from authentication.models.UserWallet import UserWallet
 from nft.models.NftAuthor import NftAuthor
 from nft.models.NftModel import NftModel
 
@@ -26,7 +26,19 @@ if not User.objects.filter(username="root").exists():
                                   email="root@root.com",
                                   first_name="rooot",
                                   last_name="roooot")
+wallet = UserWallet.objects.get_or_create(address='0x8d4b40C9e7ef8fafA0E4E857Ea53aF32CbfE52Fc',
+                                          key='0x8d4b40C9e7ef8fafA0E4E857Ea53aF32CbfE52Fc',
+                                          private_key='0x8d4b40C9e7ef8fafA0E4E857Ea53aF32CbfE52Fc',
+                                          last_state=0
 
+                                          )
+if not User.objects.filter(username="test_user").exists():
+    user = User.objects.create_user('test_user', 'user@user.com', 'User', 'Lastuser', 'user123', )
+user = User.objects.filter(username="test_user").first()
+user.wallet_id = 1
+user.is_active = True
+user.is_verified = True
+user.save()
 authors = [NftAuthor.objects.get_or_create(first_name="Monica", last_name="Lucas", country="Brazil",
                                            about="I am a great person", image="images/author_1.jpg")[0],
            NftAuthor.objects.get_or_create(first_name="Mamie", last_name="Barnett", country="Brazil",

@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from authentication.models import User
-from ..utils import HTTP_STATUS_CODES, JobState
+from ..utils import JobState
 
 
 class RequestType(models.IntegerChoices):
@@ -19,11 +19,10 @@ charfield_errors = {
 
 class RequestModel(models.Model):
     name = models.CharField(max_length=255, unique=True, null=False)
-    response = models.SmallIntegerField(choices=HTTP_STATUS_CODES, null=True, blank=True)
-    method = models.CharField(default='GET', max_length=7)
     created = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(null=False, default=JobState.CREATE, max_length=20)
-    info = models.CharField(max_length=1000, null=False, blank=True,validators=[MinLengthValidator(20)])
+    status = models.CharField(null=False, default=JobState.NEW, max_length=20)
+    paid = models.BooleanField(default=False)
+    info = models.CharField(max_length=1000, null=False, blank=True, validators=[MinLengthValidator(20)])
     price = models.FloatField(null=False, blank=False)
     request_type = models.IntegerField(choices=RequestType.choices, blank=False, null=False,
                                        error_messages=charfield_errors)
