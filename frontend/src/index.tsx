@@ -9,6 +9,8 @@ import '../node_modules/elegant-icons/style.css';
 import '../node_modules/et-line/style.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
+//temp todo
+import {MetaMaskProvider} from "metamask-react";
 
 import {AuthProvider} from 'react-auth-kit'
 import ApiClientProvider from "./api/ApiProvider";
@@ -18,6 +20,7 @@ import '../src/assets/style.css'; ///eee co
 
 
 const queryClient: QueryClient = new QueryClient()
+
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement

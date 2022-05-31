@@ -12,6 +12,8 @@ import Navbar from "./components/Navbar";
 import Gallery from "./components/gallery/Gallery";
 import NftDetails from "./components/gallery/NftDetails";
 import RegisterPage from "./components/RegisterPage";
+import MetaMask from "./components/MetaMask";
+
 
 import LoginPage from "./components/LoginPage";
 import Protected from "./components/Protected";
@@ -44,6 +46,9 @@ function App() {
                     <Route path="*" element={<PathDoesNotExist/>}/>
 
                     <Route path="/login" element={<LoginPage />}/>
+
+                    <Route path="/metamask" element={<MetaMask/>}/>
+
                     <Route path="/logout" element={<LogoutForm/>}/>
                     <Route path="/register" element={<RegisterPage/>}/>
                     <Route path="/author/id/:authorID" element={<AuthorDetails/>}/>
@@ -57,6 +62,7 @@ function App() {
                             <Protected/>
                         </AuthenticatedRoute>
                     }/>
+
                 </Routes>
 
 
