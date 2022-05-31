@@ -30,11 +30,13 @@ root.render(
         <QueryClientProvider client={queryClient}>
             <AuthProvider authType={'localstorage'}
                           authName={'_auth'}
-                          // refresh={refreshApi} todo add refresh
+                // refresh={refreshApi} todo add refresh
             >
                 <ApiClientProvider>
                     <BrowserRouter>
-                        <App/>
+                        <MetaMaskProvider>
+                            <App/>
+                        </MetaMaskProvider>
                     </BrowserRouter>
                 </ApiClientProvider>
             </AuthProvider>
