@@ -1,12 +1,12 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
 
 from nft.serialziers.NftListSerializer import NftListSerializer
 
 
 class NftListView(generics.ListAPIView):
     serializer_class = NftListSerializer
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (AllowAny,)
     model = serializer_class.Meta.model
     paginate_by = 100
 
