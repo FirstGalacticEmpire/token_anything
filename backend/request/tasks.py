@@ -4,7 +4,7 @@ from unittest.mock import Mock
 
 from authentication.models.UserWallet import UserWallet
 from nft.models.NftModel import NftModel
-from physical_nft_creator.celery import app
+from physical_nft_creator.celery_conf import app
 from request.dtos.WebToken import WebToken
 from request.models.RequestModel import RequestModel
 from request.utils import JobState
