@@ -15,7 +15,6 @@ class LogoutSerializer(serializers.Serializer):
         return {'message': 'User logout'}
 
     def save(self, **kwargs):
-
         try:
             RefreshToken(self.token).blacklist()
 

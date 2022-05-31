@@ -1,9 +1,10 @@
 import {FC, useState} from "react";
 import {useParams} from "react-router-dom";
 import {useQuery} from "react-query";
-import apiClient from "../../api/ApiClient";
 import {NFT} from "../interfaces/NFT";
 import {toast} from "react-toastify";
+import {ApiContextType, useAPIClient} from "../../api/ApiProvider";
+import {Link} from 'react-router-dom';
 
 interface Props {
     message?: string
@@ -12,12 +13,13 @@ interface Props {
 const NftDetails: FC<Props> = ({message}): JSX.Element => {
     const {nftId} = useParams();
     const [nft, setNft] = useState<NFT | null>(null)
+    const apiClient = useAPIClient() as ApiContextType
 
     useQuery(['nftDetails', nftId],
         apiClient.getNftDetails, {
             onSuccess: (response) => {
                 const queriedNft: NFT = response.data
-                console.log(queriedNft)
+                // console.log(queriedNft)
                 setNft(queriedNft)
             },
             onError: (e: Error) => {
@@ -31,7 +33,6 @@ const NftDetails: FC<Props> = ({message}): JSX.Element => {
 
     return (
         <div>
-            {/*<GlobalStyles/>*/}
 
             <section className='container'>
                 <div className='row mt-md-5 pt-md-4'>
@@ -52,15 +53,18 @@ const NftDetails: FC<Props> = ({message}): JSX.Element => {
 
                             <h6>Creator</h6>
                             <div className="item_author">
-                                <div className="author_list_pp">
+                                <Link to={"/author/id/" + nft?.author.id}>
+                                    <div className="author_list_pp">
                                         <span>
                                             <img className="lazy" src={nft?.author.image} alt=""/>
                                             <i className="fa fa-check"></i>
                                         </span>
-                                </div>
-                                <div className="author_list_info">
-                                    <span>{nft?.author.first_name + " " + nft?.author.last_name}</span>
-                                </div>
+                                    </div>
+                                    <div className="author_list_info">
+                                        <span>{nft?.author.first_name + " " + nft?.author.last_name}</span>
+                                    </div>
+                                </Link>
+
                             </div>
 
                             <div className="spacer-40"></div>

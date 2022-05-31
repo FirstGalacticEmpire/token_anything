@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {NFT} from "../interfaces/NFT";
-import {FC} from "react";
 import styled from "styled-components";
 
 import {Link, useNavigate} from 'react-router-dom';
@@ -41,13 +40,12 @@ const NftCard: FC<Props> = ({nft, onImgLoad, height}): JSX.Element => {
 
                 <div className="author_list_pp">
                     <span>
-                        {/*<Link> To author</Link>*/}
-
-                    {/*<span onClick={() => navigateTo(nft.author.)}>*/}
-                    <img className="lazy"
-                         src={nft.author.image}
-                         alt=""/>
-                    <i className="fa fa-check"></i>
+                        <Link to={"/author/id/" + nft.author.id}>
+                            <img className="lazy"
+                                 src={nft.author.image}
+                                 alt=""/>
+                            <i className="fa fa-check"></i>
+                        </Link>
                     </span>
                 </div>
                 <div className="nft__item_wrap" style={{height: `${height}px`}}>
@@ -63,26 +61,22 @@ const NftCard: FC<Props> = ({nft, onImgLoad, height}): JSX.Element => {
 
                 <div className="nft__item_info">
                     <Link to={"/gallery/id/" + nft.id}>
-
-
-                    {/*<span onClick={() => navigateTo(`${nft.id}`)}>*/}
-                    <h4>{nft.name}</h4>
-                    <div className="nft__item_price">
-                        {nft.price} ETH
-                        {/*{ nft.status === 'on_auction' &&*/}
-                        {/*    <span>{nft.bid}/{nft.max_bid}</span>*/}
-                        {/*}*/}
-                    </div>
-                    {/*</span>*/}
+                        <h4>{nft.name}</h4>
+                        <div className="nft__item_price">
+                            {/*{nft.price} ETH*/}
+                            {/*{ nft.status === 'on_auction' &&*/}
+                            {/*    <span>{nft.bid}/{nft.max_bid}</span>*/}
+                            {/*}*/}
+                        </div>
                     </Link>
 
-                    <div className="nft__item_action">
-                        {/*<span*/}
-                        {/*     onClick={() => navigateTo(`${nft.bid_link}/${nft.id}`)}>{nft.status === 'on_auction' ? 'Place a bid' : 'Buy Now'}*/}
-                        {/*</span>*/}
-                        <span>Buy Now</span>
+                    {/*<div className="nft__item_action">*/}
+                    {/*    /!*<span*!/*/}
+                    {/*    /!*     onClick={() => navigateTo(`${nft.bid_link}/${nft.id}`)}>{nft.status === 'on_auction' ? 'Place a bid' : 'Buy Now'}*!/*/}
+                    {/*    /!*</span>*!/*/}
+                    {/*    <span>Buy Now</span>*/}
 
-                    </div>
+                    {/*</div>*/}
                     <div className="nft__item_like">
                         <i className="fa fa-heart"></i><span>50</span>
                     </div>

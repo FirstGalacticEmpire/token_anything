@@ -37,3 +37,20 @@ $ python manage.py createsuperuser
 ```bash
 $ python manage.py startapp NAME_OF_APP
 ```
+## How to run Redis for Celery
+For Windows **wsl2 required**
+```bash
+$ sudo service redis-server start
+```
+For checking status:
+```bash
+$ sudo service redis-server status
+```
+
+## How to run backend Use Cases
+```bash
+$ celery -A physical_nft_creator beat -l INFO
+```
+```bash
+$  celery -A physical_nft_creator worker -l INFO -P eventlet 
+```
