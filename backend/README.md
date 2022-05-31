@@ -1,5 +1,17 @@
 # Physical nft creator
-TBC DESC OF APP
+Backend section of our application. 
+Main tools that was used:
+- Django
+- Web3
+- Celery (for task scheduling)
+- Postgres
+
+Main parts of the api: 
+- Authentication (register, login, user information)
+- Token Models (inormation about our tokens)
+- Request (creating tokens by end user)
+- Connector (solidity connector)
+
 ## Prerequisites
 * **[Python: 3.8.0](https://www.python.org/downloads/release/python-380/)**
 * **[Postman](https://www.postman.com/downloads/)** application for making requests. (Additional, not required)
