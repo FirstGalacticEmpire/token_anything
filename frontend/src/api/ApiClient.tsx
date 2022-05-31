@@ -1,6 +1,7 @@
 import axios, {Axios, AxiosInstance} from 'axios'
 import {User} from "../components/interfaces/User";
 import {Tokens} from "../components/interfaces/Tokens";
+import CryptoBackedToken from "../components/interfaces/CryptoBackedToken";
 
 
 class APIClient {
@@ -36,6 +37,7 @@ class APIClient {
         this.getAuthorDetails = this.getAuthorDetails.bind(this)
         this.getWalletDetails = this.getWalletDetails.bind(this)
         this.login = this.login.bind(this)
+        this.createTokenRequest = this.createTokenRequest.bind(this)
     }
 
     setupLogin(tokens: Tokens) {
@@ -66,6 +68,10 @@ class APIClient {
 
     async getWalletDetails(params: any): Promise<any>{
         return await this.axiosInstance.get('authentication/wallet/')
+    }
+
+    async createTokenRequest(cryptoBackedToken: CryptoBackedToken): Promise<any>{
+        return await this.axiosInstance.post('request/create/', JSON.stringify(cryptoBackedToken))
     }
 
 }

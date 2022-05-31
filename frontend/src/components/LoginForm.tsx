@@ -59,8 +59,8 @@ const LoginForm: FC<Props> = (): JSX.Element => {
     })
 
     const onFinish: FC<Forms> = ({email, password, remember}) => {
-        mutation.mutate({email: email, password: password})
-        // mutation.mutate({email: username, password: password})
+        // mutation.mutate({email: email, password: password})
+        mutation.mutate({email: "user@example.com", password: "stringstring"})
         return <></>
     };
 

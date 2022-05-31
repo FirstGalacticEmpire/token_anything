@@ -2,7 +2,7 @@ import * as React from "react"
 import APIClient from "./ApiClient";
 import {User} from "../components/interfaces/User";
 import {useAuthHeader} from "react-auth-kit";
-
+import CryptoBackedToken from "../components/interfaces/CryptoBackedToken"
 export const APIClientContext = React.createContext<APIClient | undefined>(undefined);
 
 interface Props {
@@ -14,6 +14,7 @@ export type ApiContextType = {
     getNftDetails: (params: any) => Promise<any>
     getAuthorDetails: (params: any) => Promise<any>
     getWalletDetails: (params: any) => Promise<any>
+    createTokenRequest: (cryptoBackedToken: CryptoBackedToken) => Promise<any>
 };
 
 const ApiClientProvider: React.FC<Props> = ({ children }) => {
