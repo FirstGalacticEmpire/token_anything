@@ -4,7 +4,10 @@ import DragDrop from "./DragDrop";
 import {toast} from "react-toastify";
 import PreviewItem from "./PreviewItem";
 import {useIsAuthenticated} from "react-auth-kit";
-
+import {useMutation} from "react-query";
+import {ApiContextType, useAPIClient} from "../../api/ApiProvider";
+import APIClient from "../../api/ApiClient";
+import CryptoBackedToken from "../interfaces/CryptoBackedToken"
 
 interface Forms {
     title: string
@@ -15,22 +18,44 @@ interface Forms {
 
 const CreateCrypto: FC<{}> = props => {
     const [image, setImage] = useState<string | ArrayBuffer | null | undefined>('');
-
     const [name, setName] = useState("")
     const isAuthenticated = useIsAuthenticated()
-
+    const apiClient = useAPIClient() as ApiContextType
 
     const handleNameChange = (value: React.ChangeEvent<HTMLInputElement>) => {
         setName(value.target.value)
     }
 
+    const createRequest = useMutation(apiClient.createTokenRequest, {
+        onSuccess: (response) => {
+
+        },
+        onError: (error) => {
+            console.log(error)
+
+
+        }
+    })
+
+
     const onFinish: FC<Forms> = ({title, description, type}) => {
-        console.log('Received values of form: ', title, description, type, image,);
+        console.log('Received values of form: ', title, description, type, image);
         if (image !== '') {
             if (isAuthenticated()) {
+                if (typeof image == "string"){
+                    const cryptoBackedToken: CryptoBackedToken  = {
+                        price: 12,
+                        name: title,
+                        info: description,
+                        request_type: 0,
+                        image: image
+                    };
+                    // createRequest.mutate(cryptoBackedToken)
+                }
+
                 // navigate("/create-papers", {state: {name: name, description: description, type: type}});
             } else {
-                toast("You have to be log in to create Tokens !!1")
+                toast("You have to be logged in to create Tokens !!")
             }
         } else {
             toast("Please input image")
