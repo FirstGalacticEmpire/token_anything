@@ -178,10 +178,7 @@ LOGGING = {
 }
 # Email informations
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'pnft.tokens@gmail.com'
-DEFAULT_FROM_EMAIL = 'pnft.tokens@gmail.com'
-EMAIL_HOST_PASSWORD = 'zaq1@WSX'
+
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
