@@ -16,53 +16,33 @@ Main parts of the api:
 * **[Python: 3.8.0](https://www.python.org/downloads/release/python-380/)**
 * **[Postman](https://www.postman.com/downloads/)** application for making requests. (Additional, not required)
 
-## Installation
-Firstly create your own virtual environment ([venv](https://docs.python.org/3/library/venv.html#module-venv)) in PyCharm or by terminal:
-```bash
-$ python3 -m venv /path/to/new/virtual/environment
-```
-The next step is to install the libraries:
-```bash
-$ pip install -r backend/requirements.txt
-```
+# Token Anything Official Github Repository 
+Created by group of students, find more about us here: [LynxSense](https://www.lynxsense.com/)
 
-## Usage
-```bash
-$ python manage.py runserver
-```
-Server should run on http://127.0.0.1:8000/ by default.
 
-## Useful commands
+### Repository structure
 
- - Migrate changed data/models:
-```bash
-$ python manage.py migrate
-```
-```bash
-$ python manage.py makemigrations
-```
-- Create super-user:
-```bash
-$ python manage.py createsuperuser
-```
-- Create new app:
-```bash
-$ python manage.py startapp NAME_OF_APP
-```
-## How to run Redis for Celery
-For Windows **wsl2 required**
-```bash
-$ sudo service redis-server start
-```
-For checking status:
-```bash
-$ sudo service redis-server status
-```
+The repository is divided into two main folders:
+* frontend - where you can find source code of our React App
+  * We have chosen React because of its flexibility and vast blockchain and web3 support.
+* backend - where source code of backend divided into microservices can be found
+  * We have chosen Django, because it supports high complexity of services, and as team we are most acquainted with Python.
 
-## How to run backend Use Cases
-```bash
-$ celery -A physical_nft_creator beat -l INFO
-```
-```bash
-$  celery -A physical_nft_creator worker -l INFO -P eventlet 
-```
+### Used technologies, frameworks, libraries:
+
+#### Backend:
+* Django 
+* Cekery for task scheduling
+* SQL lite (Planned switch to Postgres)
+* Web3 library for Python - connector with Web3
+* eth_account library for wallet creation
+#### Frontend:
+* React with TypeScript
+* React Query, Axios, Toastify
+* Ant Design  + Sass for styling blockchain
+* MetaMask for web3 connection
+#### Deep learning microservice for price determination.
+* To determine the price, we have created a model based on ResNet architecture.
+* We have used the Pytorch library for model development.
+* The source code of the microservice can be found in the separate repository:
+* [Item Price Prediction Repository](https://github.com/KonradSzafer/items-price-prediction )
